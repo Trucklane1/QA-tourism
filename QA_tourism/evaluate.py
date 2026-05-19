@@ -24,8 +24,8 @@ df_train = pd.read_csv(
 
 df_train.columns = ["question", "answer"]
 
-train_questions = df_train["question"].tolist()
-train_answers = df_train["answer"].tolist()
+train_questions = df_train["question"].astype(str).tolist()
+train_answers = df_train["answer"].astype(str).tolist()
 
 # -------------------------
 # LOAD TEST DATA
@@ -37,8 +37,8 @@ df_test = pd.read_csv(
 
 df_test.columns = ["question", "answer"]
 
-test_questions = df_test["question"].tolist()
-test_answers = df_test["answer"].tolist()
+test_questions = df_test.iloc[:, 0].tolist()
+test_answers = df_test.iloc[:, 1].tolist()
 
 # -------------------------
 # ENCODE TRAIN QUESTIONS

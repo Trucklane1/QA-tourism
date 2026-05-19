@@ -23,8 +23,9 @@ df = pd.read_csv("data/training_data.csv", header=None)
 
 df.columns = ["question", "answer"]
 
-questions = df["question"].tolist()
-answers = df["answer"].tolist()
+
+questions = df["question"].astype(str).str.strip().tolist()
+answers = df["answer"].astype(str).str.strip().tolist()
 
 # -------------------------
 # ENCODE QUESTIONS
